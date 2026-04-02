@@ -1,0 +1,21 @@
+body{
+    background-color: #ecdebf;
+    color: #0b0b4c;
+    font-family: "Edu SA Beginner", sans-serif;
+}
+
+p{
+    color:#030334;
+    font-size: 20px;
+}
+
+h1{
+    font-weight: 400;
+    font-family: "Winky rough", serif;
+    font-size: 50px;
+}
+
+h2,h3,h4,h4,h6{
+    font-weight: 800px;
+ 
+}
