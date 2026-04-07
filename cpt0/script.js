@@ -1,28 +1,21 @@
-function tacking() {
-    fetch('http://127.0.0.1:5000/api/hello')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('output').innerText = data.message;
-        });
-}
-
-function addNumbers() {
-    const a = parseInt(document.getElementById('a').value);
-    const b = parseInt(document.getElementById('b').value);
-
-    // explain to mr hicks what this does? He thinks it is related to flask
-    fetch('http://127.0.0.1:5000/api/add', {
+function pos() {
+    const wind_speed = parseInt(document.getElementById("wind").value);
+    const boat_heading = parseFloat(document.getElementById("heading").value);
+if (isNaN(wind_speed) || isNaN(boat_heading)){
+        document.getElementById('output').innerText = "Please enter valid numbers.";
+        return;}
+    fetch('http://127.0.0.1:5000/api/pos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ a: a, b: b })
+        body: JSON.stringify({
+            wind_speed: wind_speed,
+            boat_heading: boat_heading
+        })
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('result').innerText = "Result: " + data.result;
+        document.getElementById('output').innerText =
+            "Point of Sail: " + data.point + "\n" +
+            "Advice: " + data.advice;
     });
-}
-<script src="/script.js"></script>
-function home(){
-    document.getElementById("Home").innerHTML = "";
-    alert("Hello")
 }
