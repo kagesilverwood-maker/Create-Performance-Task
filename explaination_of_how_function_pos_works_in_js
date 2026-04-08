@@ -1,0 +1,51 @@
+1️⃣ Get the output element
+const output = document.getElementById('output');
+document.getElementById('output') finds the HTML element with the ID output.
+This is where we will show the result (point of sail and advice).
+We store it in a variable output so we can easily change its content.
+2️⃣ Set the basic HTML content
+output.innerHTML = "<strong>Point of Sail:</strong> " + data.point + "<br><strong>Advice:</strong>";
+data.point comes from Flask (pos.py) and is the point of sail.
+innerHTML allows us to insert HTML instead of plain text.
+<strong> makes the text bold.
+<br> inserts a line break.
+
+At this point, the webpage will show something like:
+
+Point of Sail: Close Haul
+Advice:
+3️⃣ Create a <ul> element
+const ul = document.createElement("ul");
+This creates a new unordered list element (<ul>).
+It is currently empty — we will fill it with <li> items next.
+4️⃣ Loop through the advice array
+data.advice.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    ul.appendChild(li);
+});
+data.advice is an array of strings from Flask (your advice lines).
+.forEach(item => { ... }) loops through each advice string.
+For each item:
+document.createElement("li") creates a new list item (<li>).
+li.textContent = item sets the text of that list item to your advice.
+ul.appendChild(li) adds the list item to the <ul> element.
+
+After this loop, your <ul> contains one <li> for each advice line.
+
+5️⃣ Add the <ul> to the page
+output.appendChild(ul);
+Finally, we attach the <ul> (with all the <li> items) to the output element.
+The page now shows the advice as a bullet-point list under “Advice:”
+
+Example output:
+
+Point of Sail: Close Haul
+Advice:
+
+Keep sails tight
+Crew forward and ready to move to balance the boat
+Skipper forward on the side opposite the mainsail
+Keep 15°-20° heel
+Centerboard fully down
+Adjust outhaul

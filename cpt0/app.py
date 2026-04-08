@@ -1,6 +1,9 @@
-
+#ai
 from flask import Flask, jsonify, request, send_from_directory
+#ai ends
 from pos import pos
+
+#ai
 app = Flask(__name__, static_folder='.')
 
 @app.route('/style.css')
@@ -10,6 +13,7 @@ def style():
 @app.route('/script.js')
 def script():
     return send_from_directory('.', 'script.js')
+#ai ends
 
 @app.route('/home.html')
 def home():
@@ -28,6 +32,10 @@ def intermediate():
 def advanced():
     return send_from_directory('.', 'Advanced.html')
 
+@app.route('/Activities.html')
+def activities():
+    return send_from_directory('.', 'Activities.html')
+#ai
 @app.route('/api/pos', methods=['POST'])
 def pos_api():
     data = request.get_json()
@@ -40,3 +48,4 @@ def pos_api():
 
 if __name__ == '__main__':
     app.run(debug=True)
+#ai ends
