@@ -22,3 +22,23 @@ if (isNaN(boat_heading)){
     });
 }
 //ai ends
+
+
+function upwind() {
+    const direction = document.getElementById("direction").value;
+
+    document.getElementById("direction").value = "";
+    document.getElementById("direction").focus();
+
+    fetch('http://127.0.0.1:5000/api/upwind', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ move_input: direction })
+    })
+    .then(res => res.json())
+    .then(data => {
+        const output = document.getElementById("mapOutput");
+
+        output.innerHTML = "<pre>" + data.map.join("\n") + "</pre>";
+    });
+}

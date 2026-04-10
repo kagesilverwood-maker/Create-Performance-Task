@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, request, send_from_directory
 #ai ends
 from pos import pos
+from upwind import upwind
 
 #ai
 app = Flask(__name__, static_folder='.')
@@ -43,6 +44,16 @@ def pos_api():
     boat_heading = data.get("boat_heading")
 
     result = pos(boat_heading)
+
+    return jsonify(result)
+
+@app.route('/api/upwind', methods=['POST'])
+def upwind_api():
+    data =request.get_json()
+
+    move_input= data.get("move_input")
+
+    result= upwind(move_input)
 
     return jsonify(result)
 
