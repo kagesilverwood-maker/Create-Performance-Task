@@ -42,3 +42,18 @@ function upwind() {
         output.innerHTML = "<pre>" + data.map.join("\n") + "</pre>";
     });
 }
+// initial board load, created with help from ai
+function loadBoard() {
+    fetch('http://127.0.0.1:5000/api/upwind', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ move_input: "" })
+    })
+    .then(res => res.json())
+    .then(data => {
+        const output = document.getElementById("mapOutput");
+        output.innerHTML = "<pre>" + data.map.join("\n") + "</pre>";
+    });
+}
+
+document.addEventListener('DOMContentLoaded', loadBoard);
