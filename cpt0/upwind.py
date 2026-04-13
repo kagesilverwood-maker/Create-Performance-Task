@@ -59,7 +59,13 @@
 
 #         print("\n" * 5)  # clear screen effect
 
+# starting position
+player_x = 14
+player_y = 13
+
 def upwind(move_input):
+    global player_x, player_y
+
     # Map (2D grid)
     game_map = [
         ["~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ "],
@@ -79,9 +85,6 @@ def upwind(move_input):
         ["~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ "]
     ]
 
-    # starting position
-    player_x = 14
-    player_y = 13
 
     # movement logic
     if move_input == "wd":
