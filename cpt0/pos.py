@@ -25,7 +25,7 @@ def pos(boat_heading):
             ]
         }
 
-    if 45 < boat_heading < 90:
+    if 45 < boat_heading == 90:
         return {
             "point": "Close Reach",
             "advice": [

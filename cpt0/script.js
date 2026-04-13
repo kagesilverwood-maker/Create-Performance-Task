@@ -56,4 +56,13 @@ function loadBoard() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', loadBoard);
+document.addEventListener('DOMContentLoaded', function() {
+    loadBoard();
+
+    // Add Enter key support for direction input
+    document.getElementById('direction').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            upwind();
+        }
+    });
+});
