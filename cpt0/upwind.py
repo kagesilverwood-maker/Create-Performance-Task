@@ -1,10 +1,10 @@
 player_x = 14
 player_y = 13
-
+#abby 
 def upwind(move_input):
     global player_x, player_y
 
-    # Map (2D grid)
+
     game_map = [
         ["~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ ", "~ "],
         ["~ ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "~ "],
@@ -24,7 +24,7 @@ def upwind(move_input):
     ]
 
 
-    # movement logic
+    
     if move_input == "wd":
         player_x += 1
         player_y -= 1
@@ -37,8 +37,9 @@ def upwind(move_input):
     elif move_input == "aw":
         player_x -= 1
         player_y -= 1
+#Abby ends
 
-    # boundary check
+#ai assisted Debugging
     if player_y < 0 or player_y >= len(game_map):
         return {"map": ["Out of bounds"]}
     if player_x < 0 or player_x >= len(game_map[0]):
@@ -47,7 +48,7 @@ def upwind(move_input):
     if game_map[player_y][player_x] == "~ ":
         return {"map": ["Hit wall"]}
 
-    # build output map
+    
     output = []
     for y in range(len(game_map)):
         row = ""
@@ -59,3 +60,4 @@ def upwind(move_input):
         output.append(row)
 
     return {"map": output}
+#ai assisted debugging ends
